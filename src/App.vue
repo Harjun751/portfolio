@@ -8,11 +8,19 @@
   <div class="page">
     <Timeline />
   </div>
+  <div class="page">
+    <Skills />
+  </div>
+  <div class="page">
+    <Projects />
+  </div>
 </template>
 
 <script>
 import HomeText from "./views/HomeText.vue";
 import Timeline from "./views/Timeline.vue";
+import Skills from "./views/Skills.vue";
+import Projects from "./views/Projects.vue";
 import Nav from "./components/Nav.vue";
 
 export default {
@@ -21,6 +29,8 @@ export default {
     HomeText,
     Nav,
     Timeline,
+    Skills,
+    Projects,
   },
 };
 </script>
