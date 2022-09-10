@@ -53,8 +53,20 @@ html{
   scroll-behavior: smooth;
 }
 .page{
+  min-height: 100vh;
   height:100vh;
   scroll-snap-align: start;
   overflow: hidden;
+}
+
+@media screen and (max-height: 900px) {
+  html{
+    scroll-snap-type: initial;
+  }
+}
+@media only screen and (max-width: 1180px) {
+  .page{
+    height: unset;
+  }
 }
 </style>
