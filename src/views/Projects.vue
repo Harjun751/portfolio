@@ -1,0 +1,227 @@
+<template>
+  <div style="position:relative;padding-top:43px;">
+    <Transition>
+      <div v-if="open" class="background" @click="open=false"></div>
+    </Transition>
+    <div class="modal" :class="[open ? 'show' : '']">
+        <img class="rounded" :src="getImageURL(icon)" width="557" height="276" />
+        <p class="title">{{ name }}</p>
+        <p class="description">{{ description }}</p>
+        <p class="subtitle">Technologies Used</p>
+        <div style="display:flex;">
+            <div v-for="index in tech" :key="index" class="techList">
+                <img :src="getImageURL(technologies.getList(index).icon)" width="105" height="105" />
+                <p class="techDesc">{{ technologies.getList(index).name }}</p>
+            </div>
+        </div>
+        <p class="subtitle">Links</p>
+        <div style="display:flex;">
+            <div v-if="links.gh" class="techList">
+                <a :href="links.gh" target="_blank">
+                    <img src="../assets/icons/gh.png" width="105" height="105" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <p id="title">Projects</p>
+    <div class="container">
+        <div v-for="project in projects" :key="project.name" class="project" @click="openModal(project)"> 
+        <img class="rounded" :src="require(`../assets/${project.icon}`)" width="478" height="236" />
+        <p class="name">{{ project.name }}</p>
+        </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { technologies } from "../technologies.js"
+export default {
+  data() {
+    return {
+      projects: [
+        {
+          name: "Ooper",
+          icon: "projects/ooper.gif",
+          description: "Ooper is a ride sharing platform created for an assignment. It utilizes a microservice architecture coded in Go for the backend of the application, and uses VueJS as the frontend framework. ",
+          tech: [0,1,7,5],
+          links: {gh:"https://github.com/Harjun751/ETI-Ooper"}
+        },
+        {
+          name: "Portfolio",
+          icon: "projects/portfolio.gif",
+          description: "This website. Created for fun!",
+          tech: [0],
+          links: {gh:"https://github.com/Harjun751/portfolio"}
+        },
+        {
+          name: "Edufi-Timetable",
+          icon: "projects/edufi-timetable.gif",
+          description: "EduFi-Timetable is a microservice that implements part of the 'EduFi' application created for the Emerging Trends in IT module assignment 2. It uses ExpressJS as the backend, with the template engine 'LiquidJS'. The frontend is a simple html page along with tailwindcss for styling. The application is Dockerized, and there is a simple lint workflow for the project.",
+          tech: [8,6,5],
+          links: {gh:"https://github.com/Harjun751/ETI-EduFi-Timetable"}
+        },
+        {
+          name: "Simpcity",
+          icon: "projects/simpcity.png",
+          description: "Simpcity is a simple console application game. The project demonstrates collaborative work done on github.",
+          tech: [4,6],
+          links: {gh:"https://github.com/notyumin/SimpCity"}
+        },
+      ],
+      open:false,
+      description:'',
+      icon:'projects/ooper.gif',
+      name: "",
+      tech: [],
+      links: {},
+      technologies: technologies,
+    };
+  },
+  methods:{
+    openModal(project){
+        this.description = project.description;
+        this.icon = project.icon;
+        this.name = project.name;
+        this.tech = project.tech;
+        this.links = project.links;
+        this.open=true;
+    },
+    getImageURL(img){
+        return require('../assets/'+img)
+    },
+  }
+};
+</script>
+
+<style scoped>
+#title {
+  font-size: 43px;
+  margin: 0;
+}
+.project {
+  width: 529px;
+  height: 322px;
+  border: 1px solid #7c6c80;
+  border-radius: 30px;
+  position: relative;
+  top:0px;
+  left:0px;
+  transition: background 0.3s, box-shadow 0.3s, top 0.3s, left 0.3s;
+  cursor: pointer;
+}
+.name {
+  font-size: 43px;
+  margin: 0;
+  transition: color 0.3s;
+}
+.title{
+  font-size:43px;
+  margin-top:20px;
+  margin: 20px 0;
+  text-align: left;
+}
+.description{
+    margin-top:0px;
+    text-align:left;
+}
+.subtitle{
+    font-size:30px;
+    margin: 20px 0;
+    text-align:left;
+}
+.container {
+  margin-top:20px;
+  display: grid;
+  /* 530px */
+  grid-template-columns: 530px 530px 530px;
+  grid-template-rows: 330px 330px;
+  row-gap: 20px;
+  column-gap: 50px;
+  justify-content: center;
+}
+.rounded {
+  margin-top: 20px;
+  border: none;
+  border-radius:30px;
+}
+.project:hover {
+  background: #ff8acc;
+  box-shadow: 5px 10px #7c6c80;
+  top:-3px;
+  left:-3px;
+}
+.project:hover > .name {
+  color: white;
+}
+.modal {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  right: -610px;
+  width: 540px;
+  z-index:2;
+
+  background: #FDF6FF;
+  filter: drop-shadow(0 0 3px #333);
+  transition: right 0.3s;
+  padding: 20px 30px;
+}
+.techList{
+    margin-right:20px;
+    height:150px;
+    display:inline-block;
+}
+.techDesc{
+    font-size:30px;
+    text-align: center;
+    margin:0;
+}
+.modal.show{
+  right:0px;
+}
+
+.background{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  z-index:1;
+  backdrop-filter: blur(5px);
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+@media screen and (max-width: 1919px) {
+  .container {
+    grid-template-columns: 530px 530px;
+    grid-template-rows: 330px 330px 330px;
+  }
+}
+@media screen and (max-width: 1120px) {
+  .container {
+    grid-template-columns: 530px;
+    grid-template-rows: 330px 330px 330px 330px 330px;
+  }
+}
+@media screen and (max-width: 540px) {
+  .container {
+    grid-template-columns: 100%;
+    justify-items:center;
+  }
+  .project {
+    width: 90%;
+  }
+  img{
+    width:90%;
+    height:55%;
+  }
+}
+</style>
