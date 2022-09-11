@@ -2,16 +2,16 @@
   <section>
     <Nav />
   </section>
-  <div class="page">
+  <div class="page" id="Home">
     <HomeText />
   </div>
-  <div class="page">
+  <div class="page" id="Timeline">
     <Timeline />
   </div>
-  <div class="page">
+  <div class="page" id="Skills">
     <Skills />
   </div>
-  <div class="page">
+  <div class="page" id="Projects">
     <Projects />
   </div>
 </template>
@@ -58,15 +58,13 @@ html{
   scroll-snap-align: start;
   overflow: hidden;
 }
-
-@media screen and (max-height: 900px) {
-  html{
-    scroll-snap-type: initial;
-  }
-}
-@media only screen and (max-width: 1180px) {
+@media only screen and (max-width: 1280px) {
   .page{
     height: unset;
+  }
+  html{
+    overflow-x:hidden;
+    scroll-snap-type: initial;
   }
 }
 </style>

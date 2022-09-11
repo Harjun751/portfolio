@@ -6,10 +6,10 @@
   </span>
 
   <div id="navContainer" :class="[showNav ? 'show' : 'hide']">
-    <div>Home</div>
-    <div>Qualifications</div>
-    <div>Projects</div>
-    <div>About Me</div>
+    <div><a @click="showNav=false" href="#Home">Home</a></div>
+    <div><a @click="showNav=false" href="#Timeline">Timeline</a></div>
+    <div><a @click="showNav=false" href="#Skills">Skills</a></div>
+    <div><a @click="showNav=false" href="#Projects">Projects</a></div>
   </div>
 </template>
 
@@ -38,9 +38,6 @@ export default {
   margin-top: 15px;
   transition: transform 0.5s, margin-top 0.5s;
 }
-#burgerButton:hover > .line {
-  
-}
 
 #navContainer {
   position: fixed;
@@ -63,8 +60,9 @@ export default {
   /* depends on font size.. */
   left: -300px;
   transition: left 0.5s;
+  
 }
-#navContainer div:hover {
+#navContainer a{
   cursor: pointer;
 }
 
@@ -106,5 +104,37 @@ export default {
 }
 #burgerButton.hide .line:nth-child(2){
   transform: rotate(0deg);
+}
+a{
+  color:unset;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 540px) {
+  #burgerButton {
+    top:10px;
+    left:10px;
+    transform: scale(0.8);
+  }
+  #navContainer div {
+    padding-top:90px;
+    font-size: 36px;
+    text-align: left;
+    margin-left: 20px;
+
+    position: relative;
+    left: -300px;
+  }
+  #navContainer.show {
+    backdrop-filter: blur(50px);
+  }
+}
+@media only screen and (max-width: 1280px) {
+  #navContainer div {
+    padding-top:100px;
+  }
+  #navContainer.show {
+    backdrop-filter: blur(50px);
+  }
 }
 </style>

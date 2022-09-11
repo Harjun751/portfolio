@@ -22,6 +22,7 @@
                 </a>
             </div>
         </div>
+        <div class="closebtn" @click="open=false"><p>Close</p></div>
     </div>
     <p id="title">Projects</p>
     <div class="container">
@@ -56,7 +57,7 @@ export default {
         {
           name: "Edufi-Timetable",
           icon: "projects/edufi-timetable.gif",
-          description: "EduFi-Timetable is a microservice that implements part of the 'EduFi' application created for the Emerging Trends in IT module assignment 2. It uses ExpressJS as the backend, with the template engine 'LiquidJS'. The frontend is a simple html page along with tailwindcss for styling. The application is Dockerized, and there is a simple lint workflow for the project.",
+          description: "EduFi-Timetable is a microservice part of the 'EduFi' application created for the Emerging Trends in IT module assignment 2. It uses ExpressJS as the backend, with the template engine 'LiquidJS'. The frontend is a simple html page along with tailwindcss for styling. The application is Dockerized, and there is a simple lint workflow for the project.",
           tech: [8,6,5],
           links: {gh:"https://github.com/Harjun751/ETI-EduFi-Timetable"}
         },
@@ -132,7 +133,6 @@ export default {
 .container {
   margin-top:20px;
   display: grid;
-  /* 530px */
   grid-template-columns: 530px 530px 530px;
   grid-template-rows: 330px 330px;
   row-gap: 20px;
@@ -160,6 +160,7 @@ export default {
   right: -610px;
   width: 540px;
   z-index:2;
+  overflow: auto;
 
   background: #FDF6FF;
   filter: drop-shadow(0 0 3px #333);
@@ -189,6 +190,9 @@ export default {
   z-index:1;
   backdrop-filter: blur(5px);
 }
+.closebtn{
+  display: none;
+}
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;
@@ -204,6 +208,12 @@ export default {
     grid-template-columns: 530px 530px;
     grid-template-rows: 330px 330px 330px;
   }
+  .modal{
+    position:fixed;
+  }
+  .background{
+    position: fixed;
+  }
 }
 @media screen and (max-width: 1120px) {
   .container {
@@ -214,14 +224,41 @@ export default {
 @media screen and (max-width: 540px) {
   .container {
     grid-template-columns: 100%;
+    grid-template-rows: 220px 220px 220px 220px 220px;
     justify-items:center;
   }
   .project {
     width: 90%;
+    height: 220px;
   }
-  img{
-    width:90%;
-    height:55%;
+  img.rounded{
+    width:100%;
+    height:170px;
+    margin-top:0px;
+  }
+  .name{
+    font-size:35px;
+  }
+  .modal{
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    z-index:4;
+  }
+  .closebtn{
+    display: block;
+    width: 100%;
+    color:white;
+    background:#7c6c80;
+    cursor: pointer;
+    position:sticky;
+    bottom: 0;
+    left:0;
+    height:30px;
+  }
+  .closebtn > p{
+    padding-top:4px;
   }
 }
 </style>

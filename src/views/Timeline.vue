@@ -29,7 +29,7 @@ export default {
           year: "2019",
           name: "Information Technology @ NP",
           desc: "My first foray into the IT space. Learnt about the fundamentals of IT, such as Databases, Cybersecurity, and some programming languages",
-          width: '840px',
+          width: '75%',
           margin: '50px',
           animationDelay: '0ms'
         },
@@ -37,7 +37,7 @@ export default {
           year: "2020",
           name: "6-Month Internship @ Security-Risk Solutions",
           desc: "Gained much industry experience at a Singapore-based SME. Did full-stack development, and created websites.",
-          width: '640px',
+          width: '50%',
           margin: '50px',
           animationDelay: '0.25s'
         },
@@ -45,7 +45,7 @@ export default {
           year: "2021",
           name: "Graduated from NP",
           desc: "With a GPA of 3.86",
-          width: '440px',
+          width: '40%',
           margin: '50px',
           animationDelay: '0.5s'
         },
@@ -53,7 +53,7 @@ export default {
           year: "2024",
           name: "Computer Science @ NUS",
           desc: "Continued IT at NUS",
-          width: '240px',
+          width: '25%',
           margin: '150px',
           animationDelay: '1s'
         },
@@ -169,5 +169,38 @@ export default {
 @keyframes wslide{
   from {left:0}
   to {left:100%}
+}
+
+@media screen and (max-width: 1000px) {
+  #line{
+    left:10px;
+    height: 100%;
+  }
+  .fill{
+    display: none;
+  }
+  .event::before{
+    display: none;
+  }
+  .event{
+    flex-wrap: wrap;
+  }
+  .year{
+    margin-top:unset;
+    border-bottom: 4px solid #ff8acc;
+    padding-left:10px;
+    margin-left:10px;
+    display: block;
+  }
+  .info{
+    margin-left:25px;
+  }
+  .animationActive#timeline{
+    height: 100%;
+  }
+  @keyframes slide{
+    from {height:0}
+    to {height:100%}
+  }
 }
 </style>

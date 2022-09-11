@@ -69,10 +69,19 @@ img {
 }
 @media only screen and (max-width: 768px) {
   .container {
-    grid-template-columns: 90%;
+    grid-template-columns: 40% 40%;
     grid-template-rows: 20% 20% 20% 20% 20% 20% 20% 20% 20%;
     row-gap: 20px;
     column-gap: 50px;
+  }
+  .skill{
+    transform: scale(0.7);
+  }
+  .skill:hover{
+    transform: scale(0.8);
+  }
+  .name{
+    font-size:1.7em;
   }
 }
 </style>
