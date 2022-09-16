@@ -8,14 +8,14 @@
         <p class="title">{{ name }}</p>
         <p class="description">{{ description }}</p>
         <p class="subtitle">Technologies Used</p>
-        <div style="display:flex;">
+        <div class="imglist">
             <div v-for="index in tech" :key="index" class="techList">
                 <img :src="getImageURL(technologies.getList(index).icon)" width="105" height="105" />
                 <p class="techDesc">{{ technologies.getList(index).name }}</p>
             </div>
         </div>
         <p class="subtitle">Links</p>
-        <div style="display:flex;">
+        <div class="imglist">
             <div v-if="links.gh" class="techList">
                 <a :href="links.gh" target="_blank">
                     <img src="../assets/icons/gh.png" width="105" height="105" />
@@ -153,6 +153,9 @@ export default {
 .project:hover > .name {
   color: white;
 }
+.imglist{
+  display:flex;
+}
 .modal {
   position: absolute;
   height: 100vh;
@@ -259,6 +262,9 @@ export default {
   }
   .closebtn > p{
     padding-top:4px;
+  }
+  .imglist{
+    overflow:scroll;
   }
 }
 </style>
