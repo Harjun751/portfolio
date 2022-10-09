@@ -13,7 +13,9 @@
         <option>Software Engineer</option>
         <option>DevOps member</option>
       </select>
-      <div id="confetti">
+    </div>
+    <div id="confetti">
+      <div id="innerContainer">
         <Confetti :pop="pop" />
       </div>
     </div>
@@ -145,8 +147,17 @@ select {
 }
 
 #confetti {
-  width: 5px;
   margin: auto;
+  position:relative;
+  width:90%;
+  height:5px;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+#innerContainer{
+  /* used as the middle start-point of the confetti explosion */
+  width:5px;
+  margin:auto;
 }
 
 @media screen and (max-width: 1180px) {
