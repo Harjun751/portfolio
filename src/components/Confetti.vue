@@ -22,7 +22,7 @@ export default {
   },
   created(){
     // Create 500 confetti items
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 250; i++) {
       // Randomize color
       var randomColor = Math.floor(Math.random()*16777215).toString(16);
       // Get random numbers for how much they move horizontally & diagonally 

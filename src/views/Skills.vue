@@ -49,7 +49,6 @@ export default {
   margin-top:80px;
   display: grid;
   grid-template-columns: 15% 15% 15% 15% 15%;
-  grid-template-rows: 20% 20% 20%;
   row-gap: 20px;
   column-gap: 50px;
   justify-content: space-around;

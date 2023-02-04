@@ -160,15 +160,17 @@ export default {
   position: absolute;
   height: 100vh;
   top: 0;
-  right: -610px;
   width: 540px;
   z-index:2;
   overflow: auto;
-
   background: #FDF6FF;
   filter: drop-shadow(0 0 3px #333);
-  transition: right 0.3s;
   padding: 20px 30px;
+
+  transform: translateX(100%);
+  transition: transform 0.3s;
+  right:-20px;
+  will-change: transform;  
 }
 .techList{
     margin-right:20px;
@@ -181,7 +183,7 @@ export default {
     margin:0;
 }
 .modal.show{
-  right:0px;
+  transform: none;
 }
 
 .background{
@@ -191,8 +193,10 @@ export default {
   width:100vw;
   height:100vh;
   z-index:1;
+  /* backdrop-filter laggy on firefox... */
   backdrop-filter: blur(5px);
 }
+
 .closebtn{
   display: none;
 }
@@ -205,6 +209,7 @@ export default {
 .v-leave-to {
   opacity: 0;
 }
+
 
 @media screen and (max-width: 1919px) {
   .container {

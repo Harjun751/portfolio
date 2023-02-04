@@ -57,9 +57,11 @@ export default {
   margin-left: 40px;
 
   position: relative;
-  /* depends on font size.. */
-  left: -300px;
-  transition: left 0.5s;
+
+  
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+  will-change: transform; 
   
 }
 #navContainer a{
@@ -71,7 +73,8 @@ export default {
   z-index: 2;
 }
 #navContainer.show div {
-  left: 0px;
+  /* left: 0px; */
+  transform: none;
 }
 
 #navContainer.hide {
