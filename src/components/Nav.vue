@@ -126,7 +126,6 @@ a{
     margin-left: 20px;
 
     position: relative;
-    left: -300px;
   }
   #navContainer.show {
     backdrop-filter: blur(50px);
