@@ -10,8 +10,8 @@
         <p class="subtitle">Technologies Used</p>
         <div class="imglist">
             <div v-for="index in tech" :key="index" class="techList">
-                <img :src="getImageURL(technologies.getList(index).icon)" width="105" height="105" />
-                <p class="techDesc">{{ technologies.getList(index).name }}</p>
+                <img :src="getImageURL(technologies.getTechByName(index).icon)" width="105" height="105" />
+                <p class="techDesc">{{ technologies.getTechByName(index).name }}</p>
             </div>
         </div>
         <p class="subtitle">Links</p>
@@ -41,31 +41,38 @@ export default {
     return {
       projects: [
         {
+          name: "Monopoly",
+          icon: "projects/monopoly.webp",
+          description: "A Monopoly simulation built on Java. The backend utilizes the Spring framework. The project was made to deepen understanding of Java, and to prove a point.",
+          tech: ["VueJS","Java"],
+          links: {gh:"https://github.com/Harjun751/JavaMonopoly"}
+        },
+        {
           name: "Ooper",
           icon: "projects/ooper.gif",
           description: "Ooper is a ride sharing platform created for an assignment. It utilizes a microservice architecture coded in Go for the backend of the application, and uses VueJS as the frontend framework. ",
-          tech: [0,1,7,5],
+          tech: ["VueJS","Golang","Microservices","SQL"],
           links: {gh:"https://github.com/Harjun751/ETI-Ooper"}
         },
         {
           name: "Portfolio",
           icon: "projects/portfolio.gif",
           description: "This website. Created for fun!",
-          tech: [0],
+          tech: ["VueJS"],
           links: {gh:"https://github.com/Harjun751/portfolio"}
         },
         {
           name: "Edufi-Timetable",
           icon: "projects/edufi-timetable.gif",
           description: "EduFi-Timetable is a microservice part of the 'EduFi' application created for the Emerging Trends in IT module assignment 2. It uses ExpressJS as the backend, with the template engine 'LiquidJS'. The frontend is a simple html page along with tailwindcss for styling. The application is Dockerized, and there is a simple lint workflow for the project.",
-          tech: [8,6,5],
+          tech: ["Docker","CI/CD","SQL"],
           links: {gh:"https://github.com/Harjun751/ETI-EduFi-Timetable"}
         },
         {
           name: "Simpcity",
           icon: "projects/simpcity.png",
           description: "Simpcity is a simple console application game. The project demonstrates collaborative work done on github.",
-          tech: [4,6],
+          tech: ["Python","CI/CD"],
           links: {gh:"https://github.com/notyumin/SimpCity"}
         },
       ],

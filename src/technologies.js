@@ -13,6 +13,10 @@ const technologies = {
       icon: "tech/csharp.png",
     },
     {
+      name: "Java",
+      icon: "tech/java.png",
+    },
+    {
       name: "C++",
       icon: "tech/cplusplus.png",
     },
@@ -39,6 +43,9 @@ const technologies = {
   ],
   getList(num){
     return this.list[num];
+  },
+  getTechByName(name){
+    return this.list.find(x=>x.name==name);
   }
 };
 export { technologies };
