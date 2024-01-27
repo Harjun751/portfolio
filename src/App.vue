@@ -58,7 +58,7 @@ html{
   scroll-snap-align: start;
   overflow: hidden;
 }
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1919px) {
   .page{
     height: unset;
   }

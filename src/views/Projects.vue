@@ -16,9 +16,14 @@
         </div>
         <p class="subtitle">Links</p>
         <div class="imglist">
-            <div v-if="links.gh" class="techList">
+          <div v-if="links.gh" class="techList">
                 <a :href="links.gh" target="_blank">
                     <img src="../assets/icons/gh.png" width="105" height="105" />
+                </a>
+            </div>
+            <div v-if="links.web" class="techList">
+                <a :href="links.web" target="_blank">
+                    <img src="../assets/icons/web.png" width="105" height="105" />
                 </a>
             </div>
         </div>
@@ -40,6 +45,13 @@ export default {
   data() {
     return {
       projects: [
+        {
+          name: "Blogsite",
+          icon: "projects/blog.png",
+          description: "A Monopoly simulation built on Java. The backend utilizes the Spring framework. The project was made to deepen understanding of Java, and to prove a point.",
+          tech: ["HTML"],
+          links: {gh:"https://github.com/Harjun751/blog", web:"https://harjun751.github.io/blog/"}
+        },
         {
           name: "Monopoly",
           icon: "projects/monopoly.webp",

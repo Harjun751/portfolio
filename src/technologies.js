@@ -40,6 +40,10 @@ const technologies = {
       name: "Docker",
       icon: "tech/docker.png",
     },
+    {
+      name: "HTML",
+      icon: "tech/html.png",
+    },
   ],
   getList(num){
     return this.list[num];
