@@ -1,6 +1,14 @@
 const technologies = {
   list: [
     {
+      name: "PWA",
+      icon: "tech/pwa.png",
+    },
+    {
+      name: "Rust",
+      icon: "tech/rust.png",
+    },
+    {
       name: "VueJS",
       icon: "tech/vue.png",
     },

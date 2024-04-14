@@ -1,7 +1,7 @@
 <template>
   <div style="position:relative;padding-top:43px;">
     <Transition>
-      <div v-if="open" class="background" @click="open=false"></div>
+      <div v-if="open" class="background" @click="closeModal()"></div>
     </Transition>
     <div class="modal" :class="[open ? 'show' : '']">
         <img class="rounded" :src="getImageURL(icon)" width="557" height="276" />
@@ -19,15 +19,23 @@
           <div v-if="links.gh" class="techList">
                 <a :href="links.gh" target="_blank">
                     <img src="../assets/icons/gh.png" width="105" height="105" />
+                    <figcaption>Github</figcaption>
                 </a>
             </div>
             <div v-if="links.web" class="techList">
                 <a :href="links.web" target="_blank">
                     <img src="../assets/icons/web.png" width="105" height="105" />
+                    <figcaption>Website</figcaption>
+                </a>
+            </div>
+            <div v-if="links.blog" class="techList">
+                <a :href="links.blog" target="_blank">
+                    <img src="../assets/icons/blog.png" width="105" height="105" />
+                    <figcaption>Blog Post</figcaption>
                 </a>
             </div>
         </div>
-        <div class="closebtn" @click="open=false"><p>Close</p></div>
+        <div class="closebtn" @click="closeModal()"><p>Close</p></div>
     </div>
     <p id="title">Projects</p>
     <div class="container">
@@ -46,18 +54,25 @@ export default {
     return {
       projects: [
         {
+          name: "NewsPaper",
+          icon: "projects/newspaper.png",
+          description: "NewsPaper is a RSS reader with web scraping for full text extraction. I built it because I was annoyed with another RSS reader I downloaded from the play store.",
+          tech: ["PWA","Rust","VueJS", "Docker","CI/CD"],
+          links: {gh:"https://github.com/Harjun751/rss-reader", blog:"https://harjun751.github.io/blog/2024/03/16/my-RSS-reader.html"}
+        },
+        {
           name: "Blogsite",
           icon: "projects/blog.png",
-          description: "A Monopoly simulation built on Java. The backend utilizes the Spring framework. The project was made to deepen understanding of Java, and to prove a point.",
+          description: "My blog site! I write informally about my projects and tech stuff.",
           tech: ["HTML"],
-          links: {gh:"https://github.com/Harjun751/blog", web:"https://harjun751.github.io/blog/"}
+          links: {gh:"https://github.com/Harjun751/blog", web:"https://harjun751.github.io/blog/", blog:"https://harjun751.github.io/blog/2023/12/05/creating-a-blog.html"}
         },
         {
           name: "Monopoly",
           icon: "projects/monopoly.webp",
           description: "A Monopoly simulation built on Java. The backend utilizes the Spring framework. The project was made to deepen understanding of Java, and to prove a point.",
           tech: ["VueJS","Java"],
-          links: {gh:"https://github.com/Harjun751/JavaMonopoly"}
+          links: {gh:"https://github.com/Harjun751/JavaMonopoly", blog:"https://harjun751.github.io/blog/2023/12/05/creating-a-blog.html"}
         },
         {
           name: "Ooper",
@@ -105,6 +120,11 @@ export default {
         this.tech = project.tech;
         this.links = project.links;
         this.open=true;
+        document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+    },
+    closeModal(){
+        document.getElementsByTagName("html")[0].style.overflowY = "scroll";
+        this.open=false;
     },
     getImageURL(img){
         return require('../assets/'+img)
@@ -143,6 +163,7 @@ export default {
 .description{
     margin-top:0px;
     text-align:left;
+    font-size:20px;
 }
 .subtitle{
     font-size:30px;
@@ -174,14 +195,14 @@ export default {
 }
 .imglist{
   display:flex;
+  overflow-x: auto;
 }
 .modal {
-  position: absolute;
+  position: fixed;
   height: 100vh;
   top: 0;
   width: 540px;
   z-index:2;
-  overflow: auto;
   background: #FDF6FF;
   filter: drop-shadow(0 0 3px #333);
   padding: 20px 30px;
@@ -190,6 +211,7 @@ export default {
   transition: transform 0.3s;
   right:-20px;
   will-change: transform;  
+  overflow-y:auto;
 }
 .techList{
     margin-right:20px;

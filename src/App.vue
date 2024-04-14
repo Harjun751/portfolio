@@ -47,14 +47,12 @@ html{
   background: #FDF6FF;
   width: 100vw;
   max-width: 100%;
-  height:100vh;
   overflow-y:scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
 .page{
   min-height: 100vh;
-  height:100vh;
   scroll-snap-align: start;
   overflow: hidden;
 }
@@ -66,5 +64,11 @@ html{
     overflow-x:hidden;
     scroll-snap-type: initial;
   }
+}
+</style>
+
+<style scoped>
+div:last-of-type{
+  padding-bottom: 40px;
 }
 </style>
