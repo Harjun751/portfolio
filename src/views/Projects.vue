@@ -54,6 +54,13 @@ export default {
     return {
       projects: [
         {
+          name: "Skyhelix Helper",
+          icon: "projects/skyhelix-helper.png",
+          description: "An app I created for my part-time workplace to simplify queue management.",
+          tech: ["PWA","VueJS", "Docker"],
+          links: {gh:"https://github.com/Harjun751/skyhelix-helper", blog:"https://harjun751.github.io/blog/2024/05/06/Optimizing-my-job-with-algorithms.html"}
+        },
+        {
           name: "NewsPaper",
           icon: "projects/newspaper.png",
           description: "NewsPaper is a RSS reader with web scraping for full text extraction. I built it because I was annoyed with another RSS reader I downloaded from the play store.",
@@ -183,6 +190,7 @@ export default {
   margin-top: 20px;
   border: none;
   border-radius:30px;
+  object-fit: contain;
 }
 .project:hover {
   background: #ff8acc;
@@ -232,7 +240,7 @@ export default {
   top:0;
   left:0;
   width:100vw;
-  height:100vh;
+  height:100%;
   z-index:1;
   /* backdrop-filter laggy on firefox... */
   backdrop-filter: blur(5px);

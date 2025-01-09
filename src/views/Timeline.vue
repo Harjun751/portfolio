@@ -50,12 +50,20 @@ export default {
           animationDelay: '0.5s'
         },
         {
+          year: "2022",
+          name: "National Service",
+          desc: "Served my country for 2 years",
+          width: '30%',
+          margin: '70px',
+          animationDelay: '0.8s'
+        },
+        {
           year: "2024",
           name: "Computer Science @ NUS",
           desc: "Continued IT at NUS",
           width: '25%',
-          margin: '150px',
-          animationDelay: '1s'
+          margin: '100px',
+          animationDelay: '1.3s'
         },
       ],
       inView: false,

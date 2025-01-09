@@ -28,6 +28,17 @@
         target="_blank"
         ><img src="../assets/icons/linkedin.png" width="61" height="61"
       /></a>
+      <a
+        href="https://harjun751.github.io/blog/"
+        target="_blank"
+        ><img src="../assets/icons/blogalt.png" width="61" height="61"
+      /></a>
+      <a :href="`${publicPath}resume.pdf`" target="_blank" id="resume">
+        <img src="../assets/icons/download.png" width="61" height="61"/>
+        <div>
+          Resume
+        </div>
+      </a>
     </div>
   </div>
 </template>
@@ -43,6 +54,7 @@ export default {
     return {
       selected: "",
       pop: false,
+      publicPath: process.env.BASE_URL
     };
   },
 };
@@ -127,6 +139,20 @@ select {
 }
 #links a {
   margin-right: 20px;
+  height:61px;
+}
+#resume{
+  width:400px;
+  display: inline-block;
+}
+#resume > div{
+  display:inline-block;
+  line-height:61px;
+  vertical-align: bottom;
+  margin-left:20px;
+  font-size:23px;
+  font-weight: bold;
+  color: #7C6C80;
 }
 @keyframes appear {
   0% {
